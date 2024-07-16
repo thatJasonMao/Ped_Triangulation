@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace TriangulationUtils
+namespace TriangulationUtils_NoHole
 {
 	[RequireComponent (typeof(MeshFilter))]
 	[RequireComponent (typeof(Rigidbody))]

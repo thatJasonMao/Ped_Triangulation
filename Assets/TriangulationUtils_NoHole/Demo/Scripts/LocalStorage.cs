@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 
-namespace TriangulationUtils
+namespace TriangulationUtils_NoHole
 {
 	[Serializable]
 	public class JsonSerialization<T> {

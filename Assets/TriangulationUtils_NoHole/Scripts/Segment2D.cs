@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TriangulationUtils {
+namespace TriangulationUtils_NoHole {
 
 	public class Segment2D {
 
@@ -86,4 +86,3 @@ namespace TriangulationUtils {
 		}
 	}
 }
-

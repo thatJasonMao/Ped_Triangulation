@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-namespace TriangulationUtils {
+namespace TriangulationUtils_NoHole {
 
 	public class Circle2D {
 		public Vector2 center;
@@ -58,6 +58,5 @@ namespace TriangulationUtils {
 				Gizmos.DrawLine(p0, p1);
 			}
 		}
-
 	}
 }

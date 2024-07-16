@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace TriangulationUtils {
+namespace TriangulationUtils_NoHole {
 
 	public class Triangulation2D {
 
@@ -408,5 +408,4 @@ namespace TriangulationUtils {
 		}
 
 	}
-
 }

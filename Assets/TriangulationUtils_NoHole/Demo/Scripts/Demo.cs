@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace TriangulationUtils
+namespace TriangulationUtils_NoHole
 {
 	public class Demo : MonoBehaviour {
 
@@ -85,9 +85,5 @@ namespace TriangulationUtils
 				GL.PopMatrix();
 			}
 		}
-
-		void OnDrawGizmos () {
-		}
-
 	}
 }

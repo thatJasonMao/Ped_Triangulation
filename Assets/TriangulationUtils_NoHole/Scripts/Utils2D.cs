@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace TriangulationUtils
+namespace TriangulationUtils_NoHole
 {
 	public class Utils2D {
 
@@ -89,6 +89,5 @@ namespace TriangulationUtils
 				(CheckEqual(t0.s0, t1.s2) && CheckEqual(t0.s1, t1.s0) && CheckEqual(t0.s2, t1.s1)) ||
 				(CheckEqual(t0.s0, t1.s2) && CheckEqual(t0.s1, t1.s1) && CheckEqual(t0.s2, t1.s0));
 		}
-
 	}
 }

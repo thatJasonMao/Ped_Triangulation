@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TriangulationUtils {
+namespace TriangulationUtils_NoHole {
 
 	public class HalfEdge2D {
 		public Vector2 p;

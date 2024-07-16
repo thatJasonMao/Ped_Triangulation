@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
-
-using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace TriangulationUtils {
+namespace TriangulationUtils_NoHole {
 
 	public class Polygon2D {
 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TriangulationUtils 
+namespace TriangulationUtils_NoHole 
 {
 	public class Vertex2D {
 		public int ReferenceCount { get { return reference; } }

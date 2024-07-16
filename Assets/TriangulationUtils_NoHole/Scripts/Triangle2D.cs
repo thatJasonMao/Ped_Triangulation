@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
-using System;
-using System.Linq;
 
-namespace TriangulationUtils
+namespace TriangulationUtils_NoHole
 {
 	public class Triangle2D {
 
@@ -122,6 +120,5 @@ namespace TriangulationUtils
 			s1.DrawGizmos();
 			s2.DrawGizmos();
 		}
-
 	}
 }
