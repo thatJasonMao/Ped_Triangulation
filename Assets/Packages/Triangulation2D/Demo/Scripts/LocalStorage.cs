@@ -1,13 +1,10 @@
 ﻿using UnityEngine;
-
 using System;
 using System.IO;
-using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
 
-namespace mattatz.Utils {
-
+namespace TriangulationUtils
+{
 	[Serializable]
 	public class JsonSerialization<T> {
 		[SerializeField] List<T> target;
@@ -42,8 +39,5 @@ namespace mattatz.Utils {
 			string path = System.IO.Path.Combine(Application.streamingAssetsPath, fileName);
 			return System.IO.File.ReadAllText(path);
 		}
-
 	}
-
 }
-

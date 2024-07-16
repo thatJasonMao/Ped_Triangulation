@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 22.5
-  threshold: 0.483
+  threshold: 2
   prefab: {fileID: 111580, guid: 01293f85e33724cffb1f6673f3588572, type: 3}
   lineMat: {fileID: 2100000, guid: 3cdb56c432dc643c99684f1e7daff9b8, type: 2}
   debug: 1

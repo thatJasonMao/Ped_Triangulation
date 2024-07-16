@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
-
-using System;
 using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
 
-namespace mattatz.Triangulation2DSystem {
-
+namespace TriangulationUtils
+{
 	public class Utils2D {
 
 		// constrain a distance between two points to "threshold" length
@@ -94,6 +91,4 @@ namespace mattatz.Triangulation2DSystem {
 		}
 
 	}
-
 }
-

@@ -1,12 +1,7 @@
 ﻿using UnityEngine;
 
-using System;
-using System.Linq;
-using System.Collections;
-using System.Collections.Generic;
-
-namespace mattatz.Triangulation2DSystem {
-
+namespace TriangulationUtils 
+{
 	public class Vertex2D {
 		public int ReferenceCount { get { return reference; } }
 		public Vector2 Coordinate { get { return coordinate; } }
@@ -26,6 +21,4 @@ namespace mattatz.Triangulation2DSystem {
 			return --reference;
 		}
 	}
-
 }
-

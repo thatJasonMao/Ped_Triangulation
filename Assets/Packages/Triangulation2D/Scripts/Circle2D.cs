@@ -1,11 +1,7 @@
 ﻿using UnityEngine;
-
-using System;
-using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
 
-namespace mattatz.Triangulation2DSystem {
+namespace TriangulationUtils {
 
 	public class Circle2D {
 		public Vector2 center;
@@ -61,11 +57,7 @@ namespace mattatz.Triangulation2DSystem {
 				var p1 = points[(i + 1) % n];
 				Gizmos.DrawLine(p0, p1);
 			}
-
 		}
 
 	}
-
-
 }
-

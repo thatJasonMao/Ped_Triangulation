@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
-using System.Collections;
-using System.Collections.Generic;
-
-namespace mattatz.Triangulation2DSystem.Example {
-
+namespace TriangulationUtils
+{
 	[RequireComponent (typeof(MeshFilter))]
 	[RequireComponent (typeof(Rigidbody))]
 	public class DemoMesh : MonoBehaviour {
@@ -46,8 +43,5 @@ namespace mattatz.Triangulation2DSystem.Example {
 			GL.End();
 			GL.PopMatrix();
 		}
-
 	}
-
 }
-

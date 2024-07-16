@@ -1,19 +1,10 @@
 ﻿using UnityEngine;
-
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-
 using System;
-using System.IO;
 using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
 
-using mattatz.Utils;
-
-namespace mattatz.Triangulation2DSystem.Example {
-
+namespace TriangulationUtils
+{
 	public class Demo : MonoBehaviour {
 
 		[SerializeField, Range(10f, 30f)] float angle = 20f;
@@ -99,6 +90,4 @@ namespace mattatz.Triangulation2DSystem.Example {
 		}
 
 	}
-
 }
-

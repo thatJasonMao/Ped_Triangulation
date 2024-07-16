@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
-
 using System;
 using System.Linq;
-using System.Collections;
-using System.Collections.Generic;
 
-namespace mattatz.Triangulation2DSystem {
-
+namespace TriangulationUtils
+{
 	public class Triangle2D {
 
 		public Vertex2D a, b, c;
@@ -127,5 +124,4 @@ namespace mattatz.Triangulation2DSystem {
 		}
 
 	}
-
 }

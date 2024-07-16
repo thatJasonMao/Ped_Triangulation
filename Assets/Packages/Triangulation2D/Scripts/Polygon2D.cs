@@ -2,10 +2,9 @@
 
 using System;
 using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
 
-namespace mattatz.Triangulation2DSystem {
+namespace TriangulationUtils {
 
 	public class Polygon2D {
 
@@ -180,7 +179,5 @@ namespace mattatz.Triangulation2DSystem {
 		public void DrawGizmos () {
 			segments.ForEach(s => s.DrawGizmos());
 		}
-
 	}
-
 }
