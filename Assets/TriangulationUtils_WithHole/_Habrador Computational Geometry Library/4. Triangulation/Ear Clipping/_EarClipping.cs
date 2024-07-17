@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //Triangulate a concave hull (with holes) by using an algorithm called Ear Clipping
     //Based on: 

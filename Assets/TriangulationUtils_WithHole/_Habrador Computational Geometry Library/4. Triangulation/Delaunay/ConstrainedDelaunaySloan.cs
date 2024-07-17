@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //From the report "An algorithm for generating constrained delaunay triangulations" by Sloan
     public static class ConstrainedDelaunaySloan

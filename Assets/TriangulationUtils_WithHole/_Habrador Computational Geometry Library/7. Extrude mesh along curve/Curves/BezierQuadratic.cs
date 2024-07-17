@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //A collection of classes to make the methods more general
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //Bezier with one handle
     public class BezierQuadratic : _Curve

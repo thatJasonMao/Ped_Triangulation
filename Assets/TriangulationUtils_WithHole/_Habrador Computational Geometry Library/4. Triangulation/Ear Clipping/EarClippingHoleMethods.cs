@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //Methods related to making holes in Ear Clipping algorithm
     public static class EarClippingHoleMethods

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //Axis-Aligned-Bounding-Box, which is a rectangle in 2d space aligned along the x-y axis
     public struct AABB2

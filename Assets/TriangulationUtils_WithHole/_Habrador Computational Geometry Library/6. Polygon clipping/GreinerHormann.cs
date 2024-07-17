@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //Can do boolean operations on all types polygons
     //From the report "Efficient clipping of arbitrary polygons"

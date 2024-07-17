@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Habrador_Computational_Geometry;
+using TrangulationUtils_WithHole;
 
 
 //Generate a mesh by using the Marching Squares Algorithm
@@ -22,7 +22,7 @@ public class MarchingSquaresController : MonoBehaviour
     //So we can display the map in OnDrawGizmos
     private float[,] map;
 
-    private Habrador_Computational_Geometry.Marching_Squares.SquareGrid grid;
+    private TrangulationUtils_WithHole.Marching_Squares.SquareGrid grid;
 
 
 
@@ -133,7 +133,7 @@ public class MarchingSquaresController : MonoBehaviour
         {
             for (int z = 0; z < zLength; z++)
             {
-                Habrador_Computational_Geometry.Marching_Squares.Square square = grid.squares[x, z];
+                TrangulationUtils_WithHole.Marching_Squares.Square square = grid.squares[x, z];
 
                 float sphereRadius = 0.05f;
 

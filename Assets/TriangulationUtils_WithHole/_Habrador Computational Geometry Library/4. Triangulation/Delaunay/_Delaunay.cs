@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Important that input is hashset because cant handle duplicates 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     public static class _Delaunay
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //Generate a convex hull in 3d space with an iterative algorithm (also known as beneath-beyond)
     //Is very similar to Quickhull

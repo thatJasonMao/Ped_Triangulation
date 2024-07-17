@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //Help enum, to make it easier to deal with three cases: intersecting inside, intersecting on edge, not intersecting 
     //If we have two cases we can just return a bool

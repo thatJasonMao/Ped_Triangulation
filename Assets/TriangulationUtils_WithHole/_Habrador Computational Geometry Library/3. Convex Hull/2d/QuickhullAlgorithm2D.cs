@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //https://en.wikipedia.org/wiki/Quickhull
     //"Implementing Quickhull" pdf from Valve by Dirk Gregorious

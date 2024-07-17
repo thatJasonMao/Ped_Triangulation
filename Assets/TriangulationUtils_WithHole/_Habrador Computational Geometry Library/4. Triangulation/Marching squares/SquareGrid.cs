@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry.Marching_Squares
+namespace TrangulationUtils_WithHole.Marching_Squares
 {
     //Will hold an entire marching squares grid, so we can create multiple of these with different data
     //Will also hold other useful information such as contour edges

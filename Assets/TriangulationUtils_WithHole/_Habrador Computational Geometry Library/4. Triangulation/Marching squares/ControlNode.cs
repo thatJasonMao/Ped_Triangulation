@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry.Marching_Squares
+namespace TrangulationUtils_WithHole.Marching_Squares
 {
     //The corner switches that determines which mesh to pick
     //These are determined by the map we send to the algorithm, where each node can be either 1 or 0

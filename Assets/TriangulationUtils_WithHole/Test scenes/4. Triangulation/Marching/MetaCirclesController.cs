@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Habrador_Computational_Geometry;
+using TrangulationUtils_WithHole;
 
 //MetaBalls in 2d space (= MetaCircles) by using the Marching Squares algorithm
 //Based on http://jamie-wong.com/2014/08/19/metaballs-and-marching-squares/
@@ -23,7 +23,7 @@ public class MetaCirclesController : MonoBehaviour
     //So we can display the map in OnDrawGizmos
     private float[,] map;
 
-    private Habrador_Computational_Geometry.Marching_Squares.SquareGrid grid;
+    private TrangulationUtils_WithHole.Marching_Squares.SquareGrid grid;
 
     private float minCircleSize = 1f;
     private float maxCircleSize = 4f;

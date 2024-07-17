@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Habrador_Computational_Geometry.Marching_Squares;
+using TrangulationUtils_WithHole.Marching_Squares;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //Generate a mesh based with the Marching Squares Algorithm
     //Will also return other useful information, such as contour edges, which identifies the mesh's border

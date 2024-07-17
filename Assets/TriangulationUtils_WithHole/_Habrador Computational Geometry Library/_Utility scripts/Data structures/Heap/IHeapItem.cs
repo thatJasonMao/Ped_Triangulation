@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //Interface for each item in the heap
     public interface IHeapItem<T> : IComparable<T>

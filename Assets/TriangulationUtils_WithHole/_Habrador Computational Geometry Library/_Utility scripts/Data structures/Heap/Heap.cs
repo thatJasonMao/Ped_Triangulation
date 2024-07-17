@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //Heap data structure (fast way to find the smallest value in an array)
     //Based on "A* Pathfinding (E04: heap optimization)" https://www.youtube.com/watch?v=3Dw5d7PlcTM

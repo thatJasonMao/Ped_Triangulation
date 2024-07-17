@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //If we modify the Sutherland-Hodgman algorithm we can do boolean operations on polygon
     public static class SutherlandHodgmanModified

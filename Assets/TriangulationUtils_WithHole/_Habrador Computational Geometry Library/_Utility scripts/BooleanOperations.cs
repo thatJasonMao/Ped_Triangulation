@@ -1,4 +1,4 @@
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //Different boolean operations
     //Intersection - Remove everything except where both A and B intersect

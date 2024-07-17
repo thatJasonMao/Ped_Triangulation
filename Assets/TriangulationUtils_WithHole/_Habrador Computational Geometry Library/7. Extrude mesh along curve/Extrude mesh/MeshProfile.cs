@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //Based on "Procedural Geometry - An Improvised Live Course" https://www.youtube.com/watch?v=6xs0Saff940
 

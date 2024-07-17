@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //Generate a counter-clockwise convex hull with the jarvis march algorithm (gift wrapping)
     //https://en.wikipedia.org/wiki/Gift_wrapping_algorithm

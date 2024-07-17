@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //Calculate the intersection of two polygons
     //https://en.wikipedia.org/wiki/Sutherland%E2%80%93Hodgman_algorithm

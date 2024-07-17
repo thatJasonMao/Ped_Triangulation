@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry.Marching_Squares
+namespace TrangulationUtils_WithHole.Marching_Squares
 {
     //A square with control nodes in the corners and nodes on the edges halfway between the corners
     //We need all 8 to determine the position and size of the mesh as this square

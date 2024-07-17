@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //From the report "A fast algorithm for constructing Delaunay triangulations in the plane" by Sloan
     //The basic idea is that we start with one big supertriangle and then add the other points one-by-one while flipping edges

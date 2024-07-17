@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //Generate a Transform (position and orientation) suitable for curves like Bezier in 3d space
     public class InterpolationTransform

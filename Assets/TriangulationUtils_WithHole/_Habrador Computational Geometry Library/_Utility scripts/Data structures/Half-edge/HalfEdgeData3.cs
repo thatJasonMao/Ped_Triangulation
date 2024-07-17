@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //A collection of classes that implements the Half-Edge Data Structure
     //From https://fgiesen.wordpress.com/2012/02/21/half-edge-based-mesh-representations-theory/

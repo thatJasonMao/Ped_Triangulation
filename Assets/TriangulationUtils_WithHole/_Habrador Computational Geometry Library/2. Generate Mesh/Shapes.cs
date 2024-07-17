@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry.MeshAlgorithms
+namespace TrangulationUtils_WithHole.MeshAlgorithms
 {
     //Generates geometric shapes, such as arrows, circles, lines, etc
     public static class Shapes

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //This will use Unity's Quaternion (which uses Vector3), but input and output will be MyVector3
     //This so we don't have to write our custom Quaternion class

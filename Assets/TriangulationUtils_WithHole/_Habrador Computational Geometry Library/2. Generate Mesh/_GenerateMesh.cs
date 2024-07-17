@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //All algorithms should be in namespace Habrador_Computational_Geometry.MeshAlgorithms
     public static class _GenerateMesh

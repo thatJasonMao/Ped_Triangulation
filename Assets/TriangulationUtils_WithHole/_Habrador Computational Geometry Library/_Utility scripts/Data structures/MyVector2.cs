@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Habrador_Computational_Geometry
+namespace TrangulationUtils_WithHole
 {
     //Unity loves to automatically cast beween Vector2 and Vector3
     //Because theres no way to stop it, its better to use a custom struct 
