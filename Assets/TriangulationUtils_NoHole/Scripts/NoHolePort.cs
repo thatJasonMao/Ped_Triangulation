@@ -23,11 +23,26 @@ namespace TriangulationUtils_NoHole
             }
         }
 
-        public List<Vector3> BoundaryPoints;
+        private List<Vector3> BoundaryPoints;
 
-        public void BulidTriangulation()
+        /// <summary>
+        /// 生成三角网格的最小内角
+        /// </summary>
+        private float MinAngle = 20f;
+
+        /// <summary>
+        /// 生成三角网格的最短边长
+        /// </summary>
+        private float MinSegement = 1.5f;
+
+        public void BulidTriangulation(List<Vector3> v3_boundary, float f_angle, float f_segement)
         { 
         
+        }
+
+        public void BulidTriangulation(List<Vector3> v3_boundary)
+        {
+            BulidTriangulation(v3_boundary, MinAngle, MinSegement);
         }
 
         public void ClearTriangulation()
