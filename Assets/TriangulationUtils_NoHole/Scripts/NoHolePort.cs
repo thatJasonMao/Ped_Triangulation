@@ -23,7 +23,7 @@ namespace TriangulationUtils_NoHole
             }
         }
 
-        private List<Vector3> BoundaryPoints;
+        private List<Vector2> BoundaryPoints;
 
         /// <summary>
         /// 生成三角网格的最小内角
@@ -35,24 +35,69 @@ namespace TriangulationUtils_NoHole
         /// </summary>
         private float MinSegement = 1.5f;
 
-        public void BulidTriangulation(List<Vector3> v3_boundary, float f_angle, float f_segement)
-        { 
-        
-        }
-
-        public void BulidTriangulation(List<Vector3> v3_boundary)
+        /// <summary>
+        /// 根据输入的边界点生成三角剖分
+        /// </summary>
+        /// <param name="v2_boundary"></param>
+        /// <param name="f_angle"></param>
+        /// <param name="f_segement"></param>
+        public void BulidTriangulation(List<Vector2> v2_boundary, float f_angle, float f_segement)
         {
-            BulidTriangulation(v3_boundary, MinAngle, MinSegement);
+            BoundaryPoints = v2_boundary;
+            Trim();
+
+            BoundaryPoints = Utils2D.Constrain(BoundaryPoints, f_segement);
+            var polygon = Polygon2D.Contour(BoundaryPoints.ToArray());
+
+            var vertices = polygon.Vertices;
+
+            //Error
+            if (vertices.Length < 3) return;
+
+            var triangulation = new Triangulation2D(polygon, f_angle);
         }
 
+        /// <summary>
+        /// 根据输入的边界点生成三角剖分
+        /// </summary>
+        /// <param name="v2_boundary"></param>
+        public void BulidTriangulation(List<Vector2> v2_boundary)
+        {
+            BulidTriangulation(v2_boundary, MinAngle, MinSegement);
+        }
+
+        /// <summary>
+        /// 清除剖分结果
+        /// </summary>
         public void ClearTriangulation()
-        { 
-        
+        {
+            BoundaryPoints.Clear();
         }
 
-        public void TrimBoundary()
-        { 
-        
+        /// <summary>
+        /// 修剪边界 确保没有间隔过小的点
+        /// </summary>
+        public void Trim()
+        {
+            Debug.Log($"Trim Start, Current Boundary Points Count: {BoundaryPoints.Count}");
+            List<Vector2> TrimedBoundary = new List<Vector2>();
+            for (int i = 0; i < BoundaryPoints.Count; i++)
+            {
+                if (i == 0)
+                {
+                    TrimedBoundary.Add(BoundaryPoints[i]);
+                }
+                else
+                {
+                    if (Vector2.Distance(BoundaryPoints[i], TrimedBoundary[TrimedBoundary.Count - 1]) > MinSegement)
+                    {
+                        TrimedBoundary.Add(BoundaryPoints[i]);
+                    }
+                }
+            }
+
+            BoundaryPoints = TrimedBoundary;
+            Debug.Log($"Trim Finish, Current Boundary Points Count: {BoundaryPoints.Count}");
         }
     }
 }
