@@ -1,11 +1,11 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace TriangulationUtils_NoHole
 {
     /// <summary>
-    /// NoHoleµÄ¶ÔÍâ±©Â¶½Ó¿Ú
+    /// NoHoleçš„å¯¹å¤–æš´éœ²æ¥å£
     /// </summary>
     public class NoHolePort : MonoBehaviour
     {
@@ -26,17 +26,17 @@ namespace TriangulationUtils_NoHole
         private List<Vector2> BoundaryPoints;
 
         /// <summary>
-        /// Éú³ÉÈı½ÇÍø¸ñµÄ×îĞ¡ÄÚ½Ç
+        /// ç”Ÿæˆä¸‰è§’ç½‘æ ¼çš„æœ€å°å†…è§’
         /// </summary>
         private float MinAngle = 20f;
 
         /// <summary>
-        /// Éú³ÉÈı½ÇÍø¸ñµÄ×î¶Ì±ß³¤
+        /// ç”Ÿæˆä¸‰è§’ç½‘æ ¼çš„æœ€çŸ­è¾¹é•¿
         /// </summary>
         private float MinSegement = 1.5f;
 
         /// <summary>
-        /// ¸ù¾İÊäÈëµÄ±ß½çµãÉú³ÉÈı½ÇÆÊ·Ö
+        /// æ ¹æ®è¾“å…¥çš„è¾¹ç•Œç‚¹ç”Ÿæˆä¸‰è§’å‰–åˆ†
         /// </summary>
         /// <param name="v2_boundary"></param>
         /// <param name="f_angle"></param>
@@ -46,19 +46,19 @@ namespace TriangulationUtils_NoHole
             BoundaryPoints = v2_boundary;
             Trim();
 
+            //ä¼˜åŒ–å†…éƒ¨è¿‡å¯†çš„ç‚¹
             BoundaryPoints = Utils2D.Constrain(BoundaryPoints, f_segement);
-            var polygon = Polygon2D.Contour(BoundaryPoints.ToArray());
 
+            //ç”Ÿæˆå¤šè¾¹å½¢
+            var polygon = Polygon2D.Contour(BoundaryPoints.ToArray());
             var vertices = polygon.Vertices;
 
-            //Error
-            if (vertices.Length < 3) return;
-
+            //æ„å»ºä¸‰è§’å‰–åˆ† æ­¤æ—¶ç‚¹å¯†åº¦çš„é—®é¢˜å·²ç»å¤„ç†å®Œæ¯•
             var triangulation = new Triangulation2D(polygon, f_angle);
         }
 
         /// <summary>
-        /// ¸ù¾İÊäÈëµÄ±ß½çµãÉú³ÉÈı½ÇÆÊ·Ö
+        /// æ ¹æ®è¾“å…¥çš„è¾¹ç•Œç‚¹ç”Ÿæˆä¸‰è§’å‰–åˆ†
         /// </summary>
         /// <param name="v2_boundary"></param>
         public void BulidTriangulation(List<Vector2> v2_boundary)
@@ -67,7 +67,7 @@ namespace TriangulationUtils_NoHole
         }
 
         /// <summary>
-        /// Çå³ıÆÊ·Ö½á¹û
+        /// æ¸…é™¤å‰–åˆ†ç»“æœ
         /// </summary>
         public void ClearTriangulation()
         {
@@ -75,7 +75,7 @@ namespace TriangulationUtils_NoHole
         }
 
         /// <summary>
-        /// ĞŞ¼ô±ß½ç È·±£Ã»ÓĞ¼ä¸ô¹ıĞ¡µÄµã
+        /// ä¿®å‰ªè¾¹ç•Œ ç¡®ä¿æ²¡æœ‰é—´éš”è¿‡å°çš„ç‚¹
         /// </summary>
         public void Trim()
         {

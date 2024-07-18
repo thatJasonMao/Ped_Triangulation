@@ -7,6 +7,13 @@ namespace TriangulationUtils_NoHole
 	public class Utils2D {
 
 		// constrain a distance between two points to "threshold" length
+		/// <summary>
+		/// 不同于在输入时的控制
+		/// 控制点集中任意两点间的距离都在阈值以上
+		/// </summary>
+		/// <param name="points"></param>
+		/// <param name="threshold"></param>
+		/// <returns></returns>
 		public static List<Vector2> Constrain (List<Vector2> points, float threshold = 1f) {
 			var result = new List<Vector2>();
 

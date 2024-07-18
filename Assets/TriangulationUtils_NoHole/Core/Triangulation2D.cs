@@ -143,24 +143,46 @@ namespace TriangulationUtils_NoHole {
 			}
 		}
 
-		public Triangle2D AddExternalTriangle (Vector2 min, Vector2 max) {
+		/// <summary>
+		/// 剖分第一式 添加三角形
+		/// </summary>
+		/// <param name="min"></param>
+		/// <param name="max"></param>
+		/// <returns></returns>
+		public Triangle2D AddExternalTriangle (Vector2 min, Vector2 max) 
+		{
+			//左下-右上 连线中点
 			var center = (max + min) * 0.5f;
+			//直径
 			var diagonal = (max - min).magnitude;
+			//半径
 			var dh = diagonal * 0.5f;
+			//圆的内接三角形的边长（等边三角形）
 			var rdh = Mathf.Sqrt(3f) * dh;
+
+			//添加大圆的内接等边三角形
 			return AddTriangle(
+				//对应三个定点
 				CheckAndAddVertex(center + new Vector2(-rdh, -dh) * 3f),
 				CheckAndAddVertex(center + new Vector2(rdh, -dh) * 3f),
 				CheckAndAddVertex(center + new Vector2(0f, diagonal) * 3f)
 			);
 		}
 
+		/// <summary>
+		/// 三角剖分的核心处理方法
+		/// </summary>
+		/// <param name="points"></param>
+		/// <param name="angle"></param>
+		/// <param name="threshold"></param>
 		void Triangulate (Vector2[] points, float angle, float threshold) {
 			Vector2 min, max;
+
+			//找出点集的最左下角、最右上角
 			Bound(points, out min, out max);
-
+			//添加大三角形
 			AddExternalTriangle(min, max);
-
+			//check点集中所有点
 			for(int i = 0, n = points.Length; i < n; i++) {
 				var v = points[i];
 				UpdateTriangulation (v);
