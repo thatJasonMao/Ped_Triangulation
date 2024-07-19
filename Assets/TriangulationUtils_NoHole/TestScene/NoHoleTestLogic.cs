@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
 
 public class NoHoleTestLogic : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class NoHoleTestLogic : MonoBehaviour
 
     private StreamReader _reader = new StreamReader(points_path);
 
+    private Stopwatch _stopwatch = new Stopwatch();
+
     private void Awake()
     {
         LoadBoundaryPoints();
@@ -19,6 +22,8 @@ public class NoHoleTestLogic : MonoBehaviour
 
     private void LoadBoundaryPoints()
     {
+        _stopwatch?.Reset();
+        _stopwatch.Start();
         int _counter = 0;
         while (!_reader.EndOfStream)
         {
@@ -31,15 +36,22 @@ public class NoHoleTestLogic : MonoBehaviour
             string str_y = locations[1];
 
             Vector2 new_bd = new Vector2(float.Parse(str_x), float.Parse(str_y));
-            Debug.Log($"新增边界点 X: {new_bd.x} Y: {new_bd.y}");
+            //耗性能 暂时全干掉
+            //Debug.Log($"新增边界点 X: {new_bd.x} Y: {new_bd.y}");
             Points.Add(new_bd);
         }
-        Debug.Log($"读取完成 当前配置文件共读取 {_counter} 行");
+        _stopwatch.Stop();
+        double time_ms = _stopwatch.Elapsed.TotalMilliseconds;
+        Debug.Log($"读取完成 当前配置文件共读取 {_counter} 行 总耗时 {time_ms} ms");
     }
 
     private void FreezeReader()
     {
+        _stopwatch?.Reset();
+        _stopwatch.Start();
         _reader?.Close();
         _reader = null;
+        double time_ms = _stopwatch.Elapsed.TotalMilliseconds;
+        Debug.Log($"解耦配置文件 总耗时 {time_ms} ms");
     }
 }
