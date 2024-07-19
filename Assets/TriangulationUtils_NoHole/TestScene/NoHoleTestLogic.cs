@@ -23,6 +23,7 @@ public class NoHoleTestLogic : MonoBehaviour
         while (!_reader.EndOfStream)
         {
             string line = _reader.ReadLine();
+            line = line.Replace(" ", "");
             _counter++;
 
             var locations = line.Split(',');
