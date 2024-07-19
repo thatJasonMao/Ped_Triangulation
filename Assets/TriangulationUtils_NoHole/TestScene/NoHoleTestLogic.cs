@@ -20,6 +20,7 @@ public class NoHoleTestLogic : MonoBehaviour
         LoadBoundaryPoints();
         FreezeReader();
         TrangulateBoundary();
+        BuildTriangleEntity();
     }
 
     private void LoadBoundaryPoints()
@@ -70,5 +71,20 @@ public class NoHoleTestLogic : MonoBehaviour
             double time_ms = _stopwatch.Elapsed.TotalMilliseconds;
             Debug.Log($"剖分边界 总耗时 {time_ms} ms");
         }
+    }
+
+    private void BuildTriangleEntity()
+    {
+        _stopwatch?.Reset();
+        _stopwatch.Start();
+
+        Mesh _mesh = new Mesh();
+        _mesh = NoHolePort.Instance.TriangulationResult.Build();
+        GameObject meshObject = new GameObject("TriangleMesh");
+        meshObject.AddComponent<MeshFilter>().mesh = _mesh;
+        meshObject.AddComponent<MeshRenderer>();
+
+        double time_ms = _stopwatch.Elapsed.TotalMilliseconds;
+        Debug.Log($"构建实体三角形 总耗时 {time_ms} ms");
     }
 }

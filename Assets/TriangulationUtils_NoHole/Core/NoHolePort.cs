@@ -36,6 +36,11 @@ namespace TriangulationUtils_NoHole
         private float MinSegement = 0.8f;
 
         /// <summary>
+        /// 剖分的最终结果
+        /// </summary>
+        public Triangulation2D TriangulationResult;
+
+        /// <summary>
         /// 根据输入的边界点生成三角剖分
         /// </summary>
         /// <param name="v2_boundary"></param>
@@ -54,7 +59,7 @@ namespace TriangulationUtils_NoHole
             var vertices = polygon.Vertices;
 
             //构建三角剖分 此时点密度的问题已经处理完毕
-            var triangulation = new Triangulation2D(polygon, f_angle);
+            TriangulationResult = new Triangulation2D(polygon, f_angle);
         }
 
         /// <summary>
