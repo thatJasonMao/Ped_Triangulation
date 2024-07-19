@@ -33,7 +33,7 @@ namespace TriangulationUtils_NoHole
         /// <summary>
         /// 生成三角网格的最短边长
         /// </summary>
-        private float MinSegement = 1.5f;
+        private float MinSegement = 0.8f;
 
         /// <summary>
         /// 根据输入的边界点生成三角剖分

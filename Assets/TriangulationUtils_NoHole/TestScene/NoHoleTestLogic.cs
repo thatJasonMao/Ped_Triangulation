@@ -3,6 +3,7 @@ using UnityEngine;
 using System.IO;
 using System.Diagnostics;
 using Debug = UnityEngine.Debug;
+using TriangulationUtils_NoHole;
 
 public class NoHoleTestLogic : MonoBehaviour
 {
@@ -18,12 +19,14 @@ public class NoHoleTestLogic : MonoBehaviour
     {
         LoadBoundaryPoints();
         FreezeReader();
+        TrangulateBoundary();
     }
 
     private void LoadBoundaryPoints()
     {
         _stopwatch?.Reset();
         _stopwatch.Start();
+
         int _counter = 0;
         while (!_reader.EndOfStream)
         {
@@ -49,9 +52,23 @@ public class NoHoleTestLogic : MonoBehaviour
     {
         _stopwatch?.Reset();
         _stopwatch.Start();
+
         _reader?.Close();
         _reader = null;
         double time_ms = _stopwatch.Elapsed.TotalMilliseconds;
         Debug.Log($"解耦配置文件 总耗时 {time_ms} ms");
+    }
+
+    private void TrangulateBoundary()
+    {
+        if (Points != null)
+        {
+            _stopwatch?.Reset();
+            _stopwatch.Start();
+
+            NoHolePort.Instance.BulidTriangulation(Points);
+            double time_ms = _stopwatch.Elapsed.TotalMilliseconds;
+            Debug.Log($"剖分边界 总耗时 {time_ms} ms");
+        }
     }
 }
