@@ -79,11 +79,19 @@ public class NoHoleTestLogic : MonoBehaviour
         _stopwatch.Start();
 
         Mesh _mesh = new Mesh();
-        _mesh = NoHolePort.Instance.TriangulationResult.Build();
+
+        if (NoHolePort.TriangulationResult != null) { Debug.Log("Confirm Finish! 剖分结果不为空!"); }
+        else
+        {
+            Debug.LogError("Confirm Error! 剖分结果为空");
+            return;
+        }
+
+        _mesh = NoHolePort.TriangulationResult.Build();
         GameObject meshObject = new GameObject("TriangleMesh");
         meshObject.AddComponent<MeshFilter>().mesh = _mesh;
         meshObject.AddComponent<MeshRenderer>();
-
+        
         double time_ms = _stopwatch.Elapsed.TotalMilliseconds;
         Debug.Log($"构建实体三角形 总耗时 {time_ms} ms");
     }

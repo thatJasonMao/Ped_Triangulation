@@ -38,7 +38,7 @@ namespace TriangulationUtils_NoHole
         /// <summary>
         /// 剖分的最终结果
         /// </summary>
-        public Triangulation2D TriangulationResult;
+        public static Triangulation2D TriangulationResult;
 
         /// <summary>
         /// 根据输入的边界点生成三角剖分
