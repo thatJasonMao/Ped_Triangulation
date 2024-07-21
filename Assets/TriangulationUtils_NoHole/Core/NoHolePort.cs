@@ -79,6 +79,7 @@ namespace TriangulationUtils_NoHole
             BoundaryPoints.Clear();
         }
 
+
         /// <summary>
         /// 修剪边界 确保没有间隔过小的点
         /// </summary>

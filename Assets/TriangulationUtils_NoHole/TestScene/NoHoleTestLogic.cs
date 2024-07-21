@@ -4,12 +4,14 @@ using System.IO;
 using System.Diagnostics;
 using Debug = UnityEngine.Debug;
 using TriangulationUtils_NoHole;
+using UnityEditor;
 
 public class NoHoleTestLogic : MonoBehaviour
 {
     public List<Vector2> Points = new List<Vector2>();
 
     private static string points_path = "Assets/StreamingAssets/BoundaryPoints.txt";
+    private static string mesh_path = "Assets/TriangulationUtils_NoHole/Demo/Prefabs/DemoMesh.prefab";
 
     private StreamReader _reader = new StreamReader(points_path);
 
@@ -78,8 +80,6 @@ public class NoHoleTestLogic : MonoBehaviour
         _stopwatch?.Reset();
         _stopwatch.Start();
 
-        Mesh _mesh = new Mesh();
-
         if (NoHolePort.TriangulationResult != null) { Debug.Log("Confirm Finish! 剖分结果不为空!"); }
         else
         {
@@ -87,12 +87,25 @@ public class NoHoleTestLogic : MonoBehaviour
             return;
         }
 
+        Mesh _mesh = new Mesh();
         _mesh = NoHolePort.TriangulationResult.Build();
-        GameObject meshObject = new GameObject("TriangleMesh");
-        meshObject.AddComponent<MeshFilter>().mesh = _mesh;
-        meshObject.AddComponent<MeshRenderer>();
-        
+        GameObject mesh_root = new GameObject("TriangleMesh");
+        InitMesh(mesh_root, _mesh);
+
         double time_ms = _stopwatch.Elapsed.TotalMilliseconds;
         Debug.Log($"构建实体三角形 总耗时 {time_ms} ms");
+    }
+
+    private void InitMesh(GameObject _root, Mesh _mesh)
+    {
+        GameObject mesh_obj = AssetDatabase.LoadAssetAtPath("Assets/TriangulationUtils_NoHole/Demo/Prefabs/DemoMesh.prefab", typeof(GameObject)) as GameObject;
+        if (mesh_obj == null) { Debug.LogError("Mesh Prefab Is Null!"); }
+
+        GameObject new_obj = Instantiate(mesh_obj) as GameObject;
+        new_obj.transform.SetParent(_root.transform);
+        new_obj.GetComponent<MeshFilter>().sharedMesh = _mesh;
+
+        new_obj.GetComponent<DemoMesh>().SetStill();
+        new_obj.GetComponent<DemoMesh>().triangles = NoHolePort.TriangulationResult.Triangles;
     }
 }

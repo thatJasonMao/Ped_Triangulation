@@ -9,12 +9,18 @@ namespace TriangulationUtils_NoHole
 
 		[SerializeField] Material lineMat;
 
-		Triangle2D[] triangles;
+		public Triangle2D[] triangles;
+
+		public static bool isBackwards = true;
+
+		public static bool isRotate = true;
 
 		void Start () {
 			var body = GetComponent<Rigidbody>();
-			body.AddForce(Vector3.forward * Random.Range(150f, 160f));
-			body.AddTorque(Random.insideUnitSphere * Random.Range(10f, 20f));
+			if (isBackwards)
+			{ body.AddForce(Vector3.forward * Random.Range(150f, 160f)); }
+			if (isRotate)
+			{ body.AddTorque(Random.insideUnitSphere * Random.Range(10f, 20f)); }
 		}
 
 		void Update () {}
@@ -24,6 +30,12 @@ namespace TriangulationUtils_NoHole
 			GetComponent<MeshFilter>().sharedMesh = mesh;
 			this.triangles = triangulation.Triangles;
 		}
+
+		public void SetStill()
+		{
+			isBackwards = false;
+			isRotate = false;
+        }
 
 		void OnRenderObject () {
 			if(triangles == null) return;
