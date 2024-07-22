@@ -18,7 +18,7 @@ using Object = UnityEngine.Object;
 ///
 /// To create and start a Timer, use the <see cref="Register"/> method.
 /// </summary>
-namespace UnityTimer
+namespace TriangulationUtils_NoHole
 {
     public class Timer
     {
