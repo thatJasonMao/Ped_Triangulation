@@ -24,6 +24,10 @@ public class NoHoleTestLogic : MonoBehaviour
 
     private Stopwatch _stopwatch = new Stopwatch();
 
+    private float _time_consumed = 0f;
+
+    private int _counter = 0;
+
     private void Awake()
     {
         LoadBoundaryPoints();
@@ -96,8 +100,12 @@ public class NoHoleTestLogic : MonoBehaviour
         _demomesh.GetComponent<DemoMesh>().triangles = NoHolePort.TriangulationResult.Triangles;
 
         _stopwatch.Stop();
-        double time_ms = _stopwatch.Elapsed.TotalMilliseconds;
-        Debug.Log($"动态剖分边界并生成实体 总耗时 {time_ms} ms");
+        double time_this_ms = _stopwatch.Elapsed.TotalMilliseconds;
+
+        _time_consumed = _time_consumed + (float)time_this_ms;
+        _counter++;
+
+        Debug.Log($"动态剖分边界并生成实体 本次耗时 {time_this_ms} ms 平均耗时{(_time_consumed/_counter).ToString()}");
     }
 
     private void TrangulateBoundary()
