@@ -5,13 +5,20 @@ using System.Diagnostics;
 using Debug = UnityEngine.Debug;
 using TriangulationUtils_NoHole;
 using UnityEditor;
+using UnityTimer;
 
 public class NoHoleTestLogic : MonoBehaviour
 {
     public List<Vector2> Points = new List<Vector2>();
 
+    public bool isDynamicDebug = false;
+
     private static string points_path = "Assets/StreamingAssets/BoundaryPoints.txt";
     private static string mesh_path = "Assets/TriangulationUtils_NoHole/Demo/Prefabs/DemoMesh.prefab";
+
+    private GameObject _demomesh;
+
+    private static Mesh _mesh;
 
     private StreamReader _reader = new StreamReader(points_path);
 
@@ -23,6 +30,11 @@ public class NoHoleTestLogic : MonoBehaviour
         FreezeReader();
         TrangulateBoundary();
         BuildTriangleEntity();
+
+        if (isDynamicDebug)
+        {
+            Timer.Register(1.0f, DynamicTriangulate, null, true, true);
+        }
     }
 
     private void LoadBoundaryPoints()
@@ -58,8 +70,34 @@ public class NoHoleTestLogic : MonoBehaviour
 
         _reader?.Close();
         _reader = null;
+
+        _stopwatch.Stop();
         double time_ms = _stopwatch.Elapsed.TotalMilliseconds;
         Debug.Log($"解耦配置文件 总耗时 {time_ms} ms");
+    }
+
+    private void DynamicTriangulate()
+    {
+        Debug.Log("Dynamic Triangulate Start!");
+        _stopwatch?.Reset();
+        _stopwatch.Start();
+
+        List<Vector2> temp_points = new List<Vector2>(Points.Count);
+        foreach (var point in Points)
+        {
+            Vector2 new_point = point + new Vector2(Random.Range(-0.3f, 0.3f), Random.Range(-0.3f, 0.3f));
+            temp_points.Add(new_point);
+        }
+
+        NoHolePort.Instance.BulidTriangulation(temp_points);
+        _mesh = NoHolePort.TriangulationResult.Build();
+
+        _demomesh.GetComponent<MeshFilter>().sharedMesh = _mesh;
+        _demomesh.GetComponent<DemoMesh>().triangles = NoHolePort.TriangulationResult.Triangles;
+
+        _stopwatch.Stop();
+        double time_ms = _stopwatch.Elapsed.TotalMilliseconds;
+        Debug.Log($"动态剖分边界并生成实体 总耗时 {time_ms} ms");
     }
 
     private void TrangulateBoundary()
@@ -70,6 +108,8 @@ public class NoHoleTestLogic : MonoBehaviour
             _stopwatch.Start();
 
             NoHolePort.Instance.BulidTriangulation(Points);
+
+            _stopwatch.Stop();
             double time_ms = _stopwatch.Elapsed.TotalMilliseconds;
             Debug.Log($"剖分边界 总耗时 {time_ms} ms");
         }
@@ -87,7 +127,6 @@ public class NoHoleTestLogic : MonoBehaviour
             return;
         }
 
-        Mesh _mesh = new Mesh();
         _mesh = NoHolePort.TriangulationResult.Build();
         GameObject mesh_root = new GameObject("TriangleMesh");
         InitMesh(mesh_root, _mesh);
@@ -107,5 +146,7 @@ public class NoHoleTestLogic : MonoBehaviour
 
         new_obj.GetComponent<DemoMesh>().SetStill();
         new_obj.GetComponent<DemoMesh>().triangles = NoHolePort.TriangulationResult.Triangles;
+
+        _demomesh = new_obj;
     }
 }

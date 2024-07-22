@@ -28,12 +28,12 @@ namespace TriangulationUtils_NoHole
         /// <summary>
         /// 生成三角网格的最小内角
         /// </summary>
-        private float MinAngle = 20f;
+        private float MinAngle = 30f;
 
         /// <summary>
         /// 生成三角网格的最短边长
         /// </summary>
-        private float MinSegement = 0.8f;
+        private float MinSegement = 1.0f;
 
         /// <summary>
         /// 剖分的最终结果
