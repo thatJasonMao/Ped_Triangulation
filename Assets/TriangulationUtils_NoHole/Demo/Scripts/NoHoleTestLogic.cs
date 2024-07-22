@@ -14,7 +14,14 @@ namespace TriangulationUtils_NoHole
 
         public bool isDynamicDebug = false;
 
+        /// <summary>
+        /// 边界点配置文件的路径
+        /// </summary>
         private static string points_path = "Assets/StreamingAssets/BoundaryPoints.txt";
+
+        /// <summary>
+        /// 网格预制体的路径
+        /// </summary>
         private static string mesh_path = "Assets/TriangulationUtils_NoHole/Demo/Prefabs/DemoMesh.prefab";
 
         private GameObject _demomesh;
